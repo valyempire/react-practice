@@ -1,0 +1,28 @@
+.carousel-inner img {
+  max-height: calc(100vh - 0px);
+  object-fit: contain;
+  margin: 0 auto;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: red;
+}
+
+.link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: end;
+  gap: 10px;
+}
+.description {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: end;
+  gap: 10px;
+}
+.carousel-caption.slide3 {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: end;
+  gap: 10px;
+}
