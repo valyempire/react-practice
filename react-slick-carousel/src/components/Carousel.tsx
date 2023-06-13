@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Carousel.css";
+import { data } from "../data/data";
 
 export const Carousel: React.FC = () => {
   const settings = {
@@ -34,21 +35,24 @@ export const Carousel: React.FC = () => {
   return (
     <div className="carousel">
       <Slider {...settings}>
-        <div className="box">
-          <h3>1</h3>
-        </div>
-        <div className="box">
-          <h3>2</h3>
-        </div>
-        <div className="box">
-          <h3>3</h3>
-        </div>
-        <div className="box">
-          <h3>4</h3>
-        </div>
-        <div className="box">
-          <h3>5</h3>
-        </div>
+        {data.map((item) => (
+          <div className="box" key={item.id}>
+            <h3>{item.name}</h3>
+            <img src={item.image} alt={item.name} />
+            <div className="link-container">
+              <div>
+                <a href={item.github} target="_blank">
+                  GitHub
+                </a>
+              </div>
+              <div>
+                <a href={item.live} target="_blank">
+                  Live
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
       </Slider>
     </div>
   );

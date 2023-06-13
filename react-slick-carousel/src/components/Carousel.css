@@ -13,17 +13,32 @@
 }
 
 .box {
+  position: relative;
   background-color: white;
   color: black;
-  height: 300px;
+  height: 400px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
 .box h3 {
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.box img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .slick-slide div {
   margin: 0 1rem;
+  background-color: lightblue;
 }
 
 .slick-dots li.slick-active button:before {
@@ -34,4 +49,25 @@
   color: rgb(255, 255, 255);
   font-size: 1rem !important;
   top: 2rem !important;
+}
+
+.link-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #0a3d62;
+}
+
+.link-container div {
+  display: flex;
+  align-items: center;
+}
+
+.link-container a {
+  color: rgb(0, 44, 44);
+  text-decoration: none;
+  margin-left: 10px;
 }
