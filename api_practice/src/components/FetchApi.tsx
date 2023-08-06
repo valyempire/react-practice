@@ -16,7 +16,7 @@ export const FetchApi = () => {
         );
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const data: User[] = await response.json();
-        setUsers(data); // Salvăm datele în starea componentei
+        setUsers(data);
       } catch (error) {
         console.error("Eroare la preluarea datelor:", error);
       }
