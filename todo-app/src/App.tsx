@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./App.css";
 
 const url = "https://jsonplaceholder.typicode.com/todos";
 
@@ -11,6 +12,7 @@ export interface TodoInterface {
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoInterface[]>([]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleCheckedTodo = (index: number) => {
     const newTodo = [...todos];
@@ -22,6 +24,24 @@ export const App: React.FC = () => {
     const newTodo = [...todos];
     newTodo.splice(index, 1);
     setTodos(newTodo);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const addnewTodo = (value: string) => {
+    const newTodo = [
+      ...todos,
+      { id: todos.length + 1, title: value, completed: false },
+    ];
+    setTodos(newTodo);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    addnewTodo(inputValue);
+    setInputValue("");
   };
 
   useEffect(() => {
@@ -38,7 +58,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="app">
       <ul>
         {todos.map((todo, index) => (
           <div>
@@ -54,6 +74,11 @@ export const App: React.FC = () => {
           </div>
         ))}
       </ul>
+
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={inputValue} onChange={handleChange} />
+        <button type="submit">Add</button>
+      </form>
     </div>
   );
 };
