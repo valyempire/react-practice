@@ -12,6 +12,18 @@ export interface TodoInterface {
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoInterface[]>([]);
 
+  const handleCheckedTodo = (index: number) => {
+    const newTodo = [...todos];
+    newTodo[index].completed = !newTodo[index].completed;
+    setTodos(newTodo);
+  };
+
+  const handleDeleteTodo = (index: number) => {
+    const newTodo = [...todos];
+    newTodo.splice(index, 1);
+    setTodos(newTodo);
+  };
+
   useEffect(() => {
     const getTodos = async () => {
       try {
@@ -28,8 +40,18 @@ export const App: React.FC = () => {
   return (
     <div>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
+        {todos.map((todo, index) => (
+          <div>
+            <div
+              style={{ textDecoration: todo.completed ? "line-through" : "" }}
+            >
+              <li key={todo.id}>{todo.title}</li>
+            </div>
+            <button onClick={() => handleCheckedTodo(index)}>
+              {todo.completed ? "Completed" : "Incompleted"}
+            </button>
+            <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+          </div>
         ))}
       </ul>
     </div>
