@@ -15,6 +15,8 @@ export const AxiosFetch = () => {
           "https://www.boredapi.com/api/activity"
         );
         setActivity(response.data.activity);
+        console.log(response.data);
+        console.log(response.data.activity);
       } catch (error) {
         console.error("Error fetching activity:", error);
       }

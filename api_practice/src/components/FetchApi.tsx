@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 interface User {
   id: number;
   name: string;
+  email: string;
 }
 
 export const FetchApi = () => {
@@ -30,7 +31,12 @@ export const FetchApi = () => {
       <h1>Users List</h1>
       <ul>
         {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
+          <li key={user.id}>
+            <div>
+              <p>{user.name}</p>
+              <p>{user.email}</p>
+            </div>
+          </li>
         ))}
       </ul>
     </div>
