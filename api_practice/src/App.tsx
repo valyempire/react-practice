@@ -1,6 +1,9 @@
 // import { Api } from "./components/Api/Api";
 
-import { Test9 } from "./components/AsyncComponent/Test9";
+// import { Test10 } from "./components/AsyncComponent/Test10";
+import { Test11 } from "./components/AsyncComponent/Test11";
+// import { Test8 } from "./components/AsyncComponent/Test8";
+// import { Test9 } from "./components/AsyncComponent/Test9";
 
 // import { Test3 } from "./components/AsyncComponent/Test3";
 // import { Test4 } from "./components/AsyncComponent/Test4";
@@ -18,5 +21,5 @@ import { Test9 } from "./components/AsyncComponent/Test9";
 // import { AsyncComponent } from "./components/AsyncComponent";
 
 export const App = () => {
-  return <Test9 />;
+  return <Test11 />;
 };
