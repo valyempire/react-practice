@@ -10,6 +10,25 @@ export interface TodoInterface {
   completed: boolean;
 }
 
+/**
+ *
+ * 1. Using this API "https://jsonplaceholder.typicode.com/todos" when App mounts, set the users state with only the
+ * first 10 todos using axios and then try with async await also use the interface from above for the todos
+ *
+ * 2. Display on the screen the todos in an ordered list
+ *
+ * 3. Create a button who must display if the todo is completed or incompleted
+ *
+ * 4. When we click on the button if a todo shows is completed must change to incompleted
+ *
+ * 5. Using css inline when we click to button to a completed todo must be marked by a line
+ *
+ * 6. Create a delete button which will delete each todo
+ *
+ *
+ *
+ */
+
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoInterface[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -40,7 +59,9 @@ export const App: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addnewTodo(inputValue);
+    if (inputValue.length > 0) {
+      addnewTodo(inputValue);
+    }
     setInputValue("");
   };
 
@@ -49,7 +70,7 @@ export const App: React.FC = () => {
       try {
         const response = await axios.get<TodoInterface[]>(url);
         setTodos(response.data.slice(0, 10));
-        // setTodos(response.data);
+        console.log(response.data.slice(0, 10));
       } catch (err) {
         console.log(err);
       }
@@ -61,7 +82,7 @@ export const App: React.FC = () => {
     <div className="app">
       <ul>
         {todos.map((todo, index) => (
-          <div>
+          <div key={todo.id}>
             <div
               style={{ textDecoration: todo.completed ? "line-through" : "" }}
             >
