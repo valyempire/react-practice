@@ -10,7 +10,7 @@ export const PracticeContextProvider = (props) => {
     setCounter((prevState) => prevState + 1);
   };
   const decreaseCounter = () => {
-    setCounter((prevState) => prevState + 1);
+    setCounter((prevState) => prevState - 1);
   };
 
   const contextValue = {

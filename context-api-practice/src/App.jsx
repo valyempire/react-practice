@@ -1,3 +1,10 @@
+import { Counter } from "./components/Counter";
+import { PracticeContextProvider } from "./Context/PracticeContext";
+
 export const App = () => {
-  return <div>App</div>;
+  return (
+    <PracticeContextProvider>
+      <Counter />
+    </PracticeContextProvider>
+  );
 };
